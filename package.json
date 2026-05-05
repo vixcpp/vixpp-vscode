@@ -2,7 +2,7 @@
   "name": "vixpp-vscode",
   "displayName": "Vix",
   "description": "VS Code support for Vix and Vix++ files.",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "publisher": "vixcpp",
   "license": "MIT",
   "repository": {

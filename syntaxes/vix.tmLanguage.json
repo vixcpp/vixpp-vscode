@@ -13,6 +13,9 @@
       "include": "#block-comment"
     },
     {
+      "include": "#stream-operators"
+    },
+    {
       "include": "#strings"
     },
     {
@@ -32,9 +35,6 @@
     },
     {
       "include": "#functions"
-    },
-    {
-      "include": "#operators"
     }
   ],
   "repository": {
@@ -75,6 +75,10 @@
       "name": "comment.block.vix",
       "begin": "/\\*",
       "end": "\\*/"
+    },
+    "stream-operators": {
+      "name": "variable.other.vix",
+      "match": "<<|>>"
     },
     "strings": {
       "patterns": [
@@ -182,10 +186,6 @@
           "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?=\\s*\\()"
         }
       ]
-    },
-    "operators": {
-      "name": "keyword.operator.vix",
-      "match": "(::|->|\\.|\\+\\+|--|==|!=|<=|>=|&&|\\|\\||<<|>>|[-+*/%=&|!<>?:])"
     }
   }
 }
