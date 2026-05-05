@@ -1,0 +1,191 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Vix++",
+  "scopeName": "source.vix",
+  "patterns": [
+    {
+      "include": "#vixpp-use-declaration"
+    },
+    {
+      "include": "#line-comment"
+    },
+    {
+      "include": "#block-comment"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#preprocessor"
+    },
+    {
+      "include": "#cpp-keywords"
+    },
+    {
+      "include": "#vix-symbols"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#functions"
+    },
+    {
+      "include": "#operators"
+    }
+  ],
+  "repository": {
+    "vixpp-use-declaration": {
+      "name": "meta.import.vix",
+      "begin": "^\\s*(use)\\s+",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.import.vix"
+        }
+      },
+      "end": "(;)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.terminator.statement.vix"
+        }
+      },
+      "patterns": [
+        {
+          "match": "\\b(vix|std|local)(?=\\.)",
+          "name": "support.namespace.vix"
+        },
+        {
+          "match": "\\.",
+          "name": "punctuation.accessor.vix"
+        },
+        {
+          "match": "[A-Za-z_][A-Za-z0-9_]*",
+          "name": "entity.name.namespace.vix"
+        }
+      ]
+    },
+    "line-comment": {
+      "name": "comment.line.double-slash.vix",
+      "match": "//.*$"
+    },
+    "block-comment": {
+      "name": "comment.block.vix",
+      "begin": "/\\*",
+      "end": "\\*/"
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.vix",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.vix",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.vix",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.vix",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "name": "constant.numeric.vix",
+      "match": "\\b((0x[0-9A-Fa-f]+)|(0b[01]+)|([0-9]+(\\.[0-9]+)?([eE][+-]?[0-9]+)?))\\b"
+    },
+    "preprocessor": {
+      "name": "meta.preprocessor.vix",
+      "match": "^\\s*#\\s*(include|define|ifdef|ifndef|endif|if|else|elif|pragma|error|warning|undef)\\b.*$",
+      "captures": {
+        "1": {
+          "name": "keyword.control.directive.vix"
+        }
+      }
+    },
+    "cpp-keywords": {
+      "patterns": [
+        {
+          "name": "storage.type.vix",
+          "match": "\\b(auto|bool|char|char8_t|char16_t|char32_t|double|float|int|long|short|signed|unsigned|void|wchar_t)\\b"
+        },
+        {
+          "name": "storage.modifier.vix",
+          "match": "\\b(const|constexpr|consteval|constinit|extern|inline|mutable|register|static|thread_local|volatile|virtual|explicit|friend)\\b"
+        },
+        {
+          "name": "keyword.control.vix",
+          "match": "\\b(if|else|switch|case|default|for|while|do|break|continue|return|goto|try|catch|throw|co_await|co_return|co_yield)\\b"
+        },
+        {
+          "name": "keyword.declaration.vix",
+          "match": "\\b(class|struct|enum|union|namespace|template|typename|using|typedef|concept|requires|operator)\\b"
+        },
+        {
+          "name": "constant.language.vix",
+          "match": "\\b(true|false|nullptr)\\b"
+        },
+        {
+          "name": "keyword.operator.word.vix",
+          "match": "\\b(sizeof|alignof|typeid|new|delete|noexcept|static_cast|dynamic_cast|reinterpret_cast|const_cast)\\b"
+        },
+        {
+          "name": "support.type.exception.vix",
+          "match": "\\b(public|private|protected)\\b"
+        }
+      ]
+    },
+    "vix-symbols": {
+      "patterns": [
+        {
+          "name": "support.namespace.vix",
+          "match": "\\bvix(?=::)"
+        },
+        {
+          "name": "support.class.vix",
+          "match": "\\b(App|Request|Response|Json|OrderedJson)\\b"
+        },
+        {
+          "name": "support.function.vix",
+          "match": "\\b(run|get|post|put|patch|del|send|json|status|set_status|param|query_value|header|body|has_header|o|a|kv|dumps|dumps_pretty|dumps_compact)\\b(?=\\s*\\()"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "support.type.standard.vix",
+          "match": "\\b(std::)?(string|string_view|vector|array|map|unordered_map|set|optional|variant|unique_ptr|shared_ptr|weak_ptr|filesystem|size_t|int8_t|int16_t|int32_t|int64_t|uint8_t|uint16_t|uint32_t|uint64_t)\\b"
+        },
+        {
+          "name": "entity.name.type.class.vix",
+          "match": "\\b[A-Z][A-Za-z0-9_]*\\b"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "entity.name.function.vix",
+          "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?=\\s*\\()"
+        }
+      ]
+    },
+    "operators": {
+      "name": "keyword.operator.vix",
+      "match": "(::|->|\\.|\\+\\+|--|==|!=|<=|>=|&&|\\|\\||<<|>>|[-+*/%=&|!<>?:])"
+    }
+  }
+}

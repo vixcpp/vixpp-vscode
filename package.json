@@ -1,0 +1,157 @@
+{
+  "name": "vixpp-vscode",
+  "displayName": "Vix",
+  "description": "VS Code support for Vix and Vix++ files.",
+  "version": "0.1.0",
+  "publisher": "vixcpp",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vixcpp/vixpp-vscode.git"
+  },
+  "homepage": "https://github.com/vixcpp/vixpp-vscode",
+  "bugs": {
+    "url": "https://github.com/vixcpp/vixpp-vscode/issues"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "vix",
+    "vixpp",
+    "vix++",
+    "cpp",
+    "c++",
+    "vix language",
+    "vix runtime"
+  ],
+  "icon": "icons/vixpp.svg",
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:vix",
+    "onCommand:vixpp.runFile",
+    "onCommand:vixpp.buildFile",
+    "onCommand:vixpp.checkFile"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "vix",
+        "aliases": [
+          "Vix++",
+          "vix"
+        ],
+        "extensions": [
+          ".vix"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "vix",
+        "scopeName": "source.vix",
+        "path": "./syntaxes/vix.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "vix",
+        "path": "./snippets/vix.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "vixpp.runFile",
+        "title": "Vix++: Run Current File",
+        "category": "Vix++"
+      },
+      {
+        "command": "vixpp.buildFile",
+        "title": "Vix++: Build Current File",
+        "category": "Vix++"
+      },
+      {
+        "command": "vixpp.checkFile",
+        "title": "Vix++: Check Current File",
+        "category": "Vix++"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "vixpp.runFile",
+          "when": "resourceLangId == vix",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "vixpp.runFile",
+          "when": "resourceLangId == vix",
+          "group": "vixpp@1"
+        },
+        {
+          "command": "vixpp.buildFile",
+          "when": "resourceLangId == vix",
+          "group": "vixpp@2"
+        },
+        {
+          "command": "vixpp.checkFile",
+          "when": "resourceLangId == vix",
+          "group": "vixpp@3"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "vixpp.runFile",
+          "when": "resourceLangId == vix"
+        },
+        {
+          "command": "vixpp.buildFile",
+          "when": "resourceLangId == vix"
+        },
+        {
+          "command": "vixpp.checkFile",
+          "when": "resourceLangId == vix"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Vix++",
+      "properties": {
+        "vixpp.vixppPath": {
+          "type": "string",
+          "default": "vix++",
+          "description": "Path to the vix++ executable."
+        },
+        "vixpp.vixPath": {
+          "type": "string",
+          "default": "vix",
+          "description": "Path to the vix executable used by vix++."
+        },
+        "vixpp.buildDir": {
+          "type": "string",
+          "default": ".vix/build/vixpp",
+          "description": "Directory used by vix++ for generated C++ files."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.4.5",
+    "@vscode/vsce": "^2.26.1"
+  }
+}

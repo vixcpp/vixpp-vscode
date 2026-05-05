@@ -1,0 +1,13 @@
+.vscode/**
+.vscode-test/**
+src/**
+node_modules/**
+out/**/*.map
+
+.gitignore
+tsconfig.json
+*.tsbuildinfo
+
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*

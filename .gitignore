@@ -1,49 +1,24 @@
-# Prerequisites
-*.d
+# Dependencies
+node_modules/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# Build output
+out/
+dist/
+*.vsix
 
-# Precompiled Headers
-*.gch
-*.pch
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Linker files
-*.ilk
+# TypeScript
+*.tsbuildinfo
 
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# debug information files
-*.dwo
-build-*/
+# VS Code local settings
 .vscode/
-vix.log
+
+# OS files
+.DS_Store
+Thumbs.db
 cmd.md
-command.md
-
-.vix/
-
