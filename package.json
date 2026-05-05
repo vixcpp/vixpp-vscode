@@ -29,7 +29,7 @@
     "vix language",
     "vix runtime"
   ],
-  "icon": "icons/vixpp.svg",
+  "icon": "icons/vixpp.png",
   "main": "./out/extension.js",
   "activationEvents": [
     "onLanguage:vix",
@@ -42,6 +42,7 @@
       {
         "id": "vix",
         "aliases": [
+          "Vix",
           "Vix++",
           "vix"
         ],
@@ -129,7 +130,7 @@
       ]
     },
     "configuration": {
-      "title": "Vix++",
+      "title": "Vix",
       "properties": {
         "vixpp.vixppPath": {
           "type": "string",
