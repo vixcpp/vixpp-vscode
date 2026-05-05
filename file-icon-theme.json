@@ -1,0 +1,14 @@
+{
+  "iconDefinitions": {
+    "_vix_file": {
+      "iconPath": "./icons/vix-file.svg"
+    }
+  },
+  "fileExtensions": {
+    "vix": "_vix_file"
+  },
+  "fileNames": {
+    "vix.lock": "_vix_file",
+    "vix.json": "_vix_file"
+  }
+}

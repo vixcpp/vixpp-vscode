@@ -51,6 +51,13 @@
         "configuration": "./language-configuration.json"
       }
     ],
+    "iconThemes": [
+      {
+        "id": "vix-icons",
+        "label": "Vix Icons",
+        "path": "./file-icon-theme.json"
+      }
+    ],
     "grammars": [
       {
         "language": "vix",

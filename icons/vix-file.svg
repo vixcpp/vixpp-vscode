@@ -1,0 +1,28 @@
+<svg viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vix-file-left" x1="24" y1="18" x2="58" y2="104" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#d4fcd4"/>
+      <stop offset="55%" stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+    <linearGradient id="vix-file-right" x1="104" y1="18" x2="70" y2="104" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M28 10H78L104 36V118H28V10Z" fill="#151518"/>
+  <path d="M78 10V36H104" fill="#242428"/>
+  <path d="M78 10L104 36H78V10Z" fill="#2f2f35"/>
+
+  <polygon points="34,28 49,28 64,96 55,96" fill="url(#vix-file-left)"/>
+  <polygon points="94,28 79,28 64,96 73,96" fill="url(#vix-file-right)"/>
+  <line x1="43" y1="58" x2="55" y2="96" stroke="#bbf7d0" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+
+  <g stroke="#bbf7d0" stroke-width="4" stroke-linecap="round">
+    <path d="M78 48V62"/>
+    <path d="M71 55H85"/>
+    <path d="M96 48V62"/>
+    <path d="M89 55H103"/>
+  </g>
+</svg>
